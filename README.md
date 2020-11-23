@@ -1,12 +1,13 @@
 cisco_asa_backup_config
 =========
 
-A brief description of the role goes here.
+A role that creates backups of configurations in a Cisco ASA with contexts.
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+This role requires the [asa command module](https://docs.ansible.com/ansible/latest/collections/cisco/asa/asa_command_module.html)
+It can be installed by ```ansible-galaxy collection install cisco.asa```
 
 Role Variables
 --------------
