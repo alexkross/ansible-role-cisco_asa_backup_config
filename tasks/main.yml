@@ -1,2 +1,6 @@
 ---
 # tasks file for cisco_asa_backup_config
+
+- name: Backup Cisco ASA
+  include_tasks: cisco_asa_backup_config.yml
+

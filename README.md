@@ -1,7 +1,8 @@
 cisco_asa_backup_config
 =========
 
-A role that creates backups of configurations in a Cisco ASA with contexts.
+A role that creates backups of configurations in a Cisco ASA.
+The role works with ASAs both with and without security contexts.
 
 Requirements
 ------------
