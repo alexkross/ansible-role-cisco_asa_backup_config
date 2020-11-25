@@ -13,7 +13,10 @@ It can be installed by ```ansible-galaxy collection install cisco.asa```
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+### backup_destination:
+This option provides the path ending with directory name in which the backup configuration file(s) will be stored. If the directory does not exist it will be first created.
+If the variable is not given a backup directory named ```backup``` will be created in the current working directory and backups will be copied to that directory.
+
 
 Dependencies
 ------------
@@ -23,11 +26,15 @@ A list of other roles hosted on Galaxy should go here, plus any details in regar
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+- hosts: all
+  gather_facts: no
+  roles:
+    - cisco_asa_backup_config
 
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+  vars:
+    backup_destination: /tmp/asa_backups/
+
+
 
 License
 -------
