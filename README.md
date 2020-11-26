@@ -12,7 +12,7 @@ This role requires the [asa command module](https://docs.ansible.com/ansible/lat
 Role Variables
 --------------
 
-#### backup_destination:
+#### cabc_backup_destination:
 This variable provides the directory name in which the backup configuration file(s) will be stored. If the directory does not exist, it will be created.
 If the variable is not given, a backup directory named `backup` will be created in the current working directory and backups will be copied to that directory.
 
@@ -26,7 +26,7 @@ Example Playbook
     - cisco_asa_backup_config
 
   vars:
-    backup_destination: /tmp/asa_backups/
+    cabc_backup_destination: /tmp/asa_backups/
 ```
 
 Example Inventory

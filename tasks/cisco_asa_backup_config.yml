@@ -32,7 +32,7 @@
         context: "{{ item.split(' ')[1] }}"
         backup: yes
         backup_options:
-          dir_path: "{{ backup_destination }}"
+          dir_path: "{{ cabc_backup_destination }}"
           filename: "{{ inventory_hostname }}-{{ item.split(' ')[1] }}.cfg"
       loop:
         "{{ var_contexts_names.stdout_lines[1] }}"
@@ -43,7 +43,7 @@
   asa_config:
     backup: yes
     backup_options:
-      dir_path: "{{ backup_destination }}"
+      dir_path: "{{ cabc_backup_destination }}"
       filename: "{{ inventory_hostname }}.cfg"
   when: not asa_multi_context
 
