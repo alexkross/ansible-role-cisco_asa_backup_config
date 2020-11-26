@@ -7,14 +7,14 @@ The role works with ASAs both with and without security contexts.
 Requirements
 ------------
 
-This role requires the [asa command module](https://docs.ansible.com/ansible/latest/collections/cisco/asa/asa_command_module.html), which can be installed by `ansible-galaxy collection install cisco.asa`
+This role requires the [asa command module](https://docs.ansible.com/ansible/latest/collections/cisco/asa/asa_command_module.html), which can be installed by `ansible-galaxy collection install cisco.asa`.
 
 Role Variables
 --------------
 
 #### backup_destination:
-This option provides the path ending with directory name in which the backup configuration file(s) will be stored. If the directory does not exist it will be first created.
-If the variable is not given a backup directory named `backup` will be created in the current working directory and backups will be copied to that directory.
+This variable provides the directory name in which the backup configuration file(s) will be stored. If the directory does not exist, it will be created.
+If the variable is not given, a backup directory named `backup` will be created in the current working directory and backups will be copied to that directory.
 
 Example Playbook
 ----------------
