@@ -1,7 +1,7 @@
 cisco_asa_backup_config
 =======================
 
-A role that creates backups of configurations in a Cisco ASA.
+A role that creates backups of Cisco ASA configurations.
 The role works with ASAs both with and without security contexts.
 
 Requirements
@@ -29,12 +29,12 @@ Example Playbook
     backup_destination: /tmp/asa_backups/
 ```
 
-Example host definition
------------------------
+Example Inventory
+-----------------
 
 ```
 [ciscoasa]
-192.168.0.1
+ciscoasa01 ansible_host=192.168.0.1
 
 [ciscoasa:vars]
 ansible_connection=ansible.netcommon.network_cli
@@ -52,4 +52,4 @@ BSD
 Author Information
 ------------------
 
-Farid Joubbi - Conoa - https://conoa.se
+Written by [Farid Joubbi](https://github.com/faridjoubbi) - Conoa - https://conoa.se
