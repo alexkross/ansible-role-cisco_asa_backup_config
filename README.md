@@ -47,9 +47,9 @@ ansible_become_password=cisco
 License
 -------
 
-BSD
+BSD Zero Clause License
 
 Author Information
 ------------------
 
-Written by [Farid Joubbi](https://github.com/faridjoubbi) - Conoa - https://conoa.se
+Written by [Farid Joubbi](https://github.com/faridjoubbi) - Conoa AB - https://conoa.se
