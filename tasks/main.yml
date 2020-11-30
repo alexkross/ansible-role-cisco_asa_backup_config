@@ -7,4 +7,3 @@
   become_method: ansible.netcommon.enable
   when: ansible_network_os == 'cisco.asa.asa' or
         ansible_network_os == 'asa'
-

@@ -46,4 +46,3 @@
       dir_path: "{{ cabc_backup_destination }}"
       filename: "{{ inventory_hostname }}.cfg"
   when: not asa_multi_context
-
