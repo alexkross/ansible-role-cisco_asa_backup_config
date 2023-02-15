@@ -3,10 +3,12 @@
 - name: Determine Security Context mode
   block:
     - name: Get context mode
-      asa_command:
+      cisco.asa.asa_command:
         commands:
           - "show mode"
       register: var_context
+      ignore_errors: true # my case for ASAv 9.3(1)
+      #no_log: true
 
     - name: set asa_multi_context fact
       set_fact:
@@ -15,20 +17,20 @@
     - name: set asa_multi_context fact on multiple context ASA
       set_fact:
         asa_multi_context: yes
-      when: '"multiple" in var_context.stdout[0]'
+      when: not var_context.failed and "multiple" in var_context.stdout[0] # proper precedense: (not false or true) is true.
 
 
 - name: Contexts present
   block:
     - name: Discover contexts
-      asa_command:
+      cisco.asa.asa_command:
         commands:
           - changeto system
           - show run context | inc context
       register: var_contexts_names
 
     - name: Take backup of multiple mode ASA system context
-      asa_config:
+      cisco.asa.asa_config:
         context: "system"
         backup: yes
         backup_options:
@@ -36,7 +38,7 @@
           filename: "{{ inventory_hostname }}-system.cfg"
 
     - name: Take backup of multiple mode ASA contexts
-      asa_config:
+      cisco.asa.asa_config:
         context: "{{ item.split(' ')[1] }}"
         backup: yes
         backup_options:
@@ -48,7 +50,7 @@
 
 
 - name: Take backup of single mode ASA
-  asa_config:
+  cisco.asa.asa_config:
     backup: yes
     backup_options:
       dir_path: "{{ cabc_backup_destination }}"
